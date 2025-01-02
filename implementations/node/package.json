@@ -1,0 +1,24 @@
+{
+  "name": "lsf-parser",
+  "version": "0.0.1",
+  "description": "An example implementation for creating and parsing LSF binary data.",
+  "main": "index.js",
+  "dependencies": {
+    "binary-parser": "^2.2.1",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "lsf",
+    "binary",
+    "parser",
+    "serialization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
