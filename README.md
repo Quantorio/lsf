@@ -1,7 +1,7 @@
 # Layered Sound Format
 The Layered Sound Format is an experimental file format primary intendet to preserve the full recorded audio from multiple instrumental/voice layers without loss providing full configurability in terms of ambience, mixing and more.
 
-Last changed on 02.01.2025
+Last changed on 07.01.2025
 ## LayeredSoundFormat Definition
 ![Structure](https://github.com/user-attachments/assets/f933fa6a-d393-4026-871b-76252a19a5a9)
 
@@ -57,7 +57,25 @@ It must be an utf8 string with a length of 100 bytes, padded with zero bytes.
 ##### Value
 Each MetaData entry must have a value.
 It must be an utf8 string with a length of 100 bytes, padded with zero bytes.
+### Virtual Speaker
+Each file may declares configuration for virtual speakers.
+If declared any application which not edits the file should respect this configuration.
+An application may let the user edit this configuration as part of a system like a equalizer.
+#### Declaration of Virtual speakers
+### Id
+Each virtual speaker entry must set the id of the assigned sound layer.
+#### Speaker Id
+Each virtual speaker entry must define the speakers as uint8 binary.
+The unique Id of a speaker must be a derivate of the bit numbers.
 
+The provided Id may include multiple speakers by applying the logical or operation to their binary id.
+
+Following a example for 3 speakers(1,2,4):
+- 1(001) & 2(010) --> 3 (011)
+- 2(010) & 4(100) --> 6 (110)
+- 1(001) & 2(010) & 4(100) --> 7 (111)
+#### Volume
+Each vitual speaker entry must define the volume as a num from 0 to 255.
 ### Total Size
 Each file must end with 8 bytes uint64.
 It must equal the file size.
